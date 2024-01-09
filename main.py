@@ -93,7 +93,7 @@ def set_led_off():
        np[i] = (0, 0, 0)
        np.write()
        
-def read_sensors_and_publish():
+def read_sensors_and_publish(min_moisture=min_moisture,max_moisture=max_moisture):
     #sensor_dht11 = dht.DHT11(Pin(13, mode=Pin.OPEN_DRAIN))
     pin = Pin(MOISTURE_SENSOR_PIN, Pin.IN)
     adc = ADC(pin)
