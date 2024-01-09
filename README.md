@@ -17,7 +17,45 @@ The project allows monitoring soil moisture levels using ESP32, sending notifica
 
 - `main.py`: The main project code, including reading data from the sensor and sending notifications.
 - `boot.py`: Configuration file executed on every boot, ensuring Wi-Fi connection and calling the main function.
+## Ntfy Docker Compose Setup
 
+To set up the Ntfy server using Docker Compose, follow these steps:
+
+1. Install Docker and Docker Compose on your server.
+
+2. Create a `docker-compose.yml` file with the following content:
+
+```yaml
+version: "2.7"
+
+services:
+  ntfy:
+    image: binwiederhier/ntfy
+    container_name: ntfy
+    command:
+      - serve
+    environment:
+      - TZ=MOSCOW    # optional: set desired timezone
+    user: 1000:1000 # optional: replace with your own user/group or uid/gid
+    volumes:
+      - /var/cache/ntfy:/var/cache/ntfy
+      - /etc/ntfy:/etc/ntfy
+    ports:
+      - 80:80
+    healthcheck: # optional: remember to adapt the host:port to your environment
+        test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
+        interval: 60s
+        timeout: 10s
+        retries: 3
+        start_period: 40s
+    restart: unless-stopped
+```
+3. Run the following command to start the Ntfy server:
+```bash
+docker-compose up -d
+```
+4. Access the Ntfy server at `http://your_server_ip:80`.
+   
 ## Usage
 
 1. Install the necessary libraries (don't forget to install `urequests`).
