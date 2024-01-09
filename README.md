@@ -58,5 +58,8 @@ The configuration file executed on every device boot. It ensures Wi-Fi connectio
 * The `urequests` library for making HTTP requests.
 * The `config.json` file with Wi-Fi settings, moisture limits, Ntfy server URL, and default topic.
 * The `main.py` file for the `read_sensors_and_publish` function.
+
+## Tags
+`ESP32`, `MicroPython`, `Soil Moisture Sensor`, `IoT`, `Ntfy Server Integration`, `Power Optimization`
 ## License
 This project is distributed under the MIT License - see the LICENSE file for details.
