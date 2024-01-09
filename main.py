@@ -114,7 +114,7 @@ def read_sensors_and_publish(min_moisture=min_moisture,max_moisture=max_moisture
             print('Soil %: '+ str(moisture_in_soil) + "%")
             #print('Temperature: %3.1f C' %temp)
             #print('Humidity: %3.1f %%' %hum)
-            publish_sensor_data(create_json(temperature=temp, humidity=hum, soil_moisture=moisture_in_soil), "fikus")
+            publish_sensor_data(create_json(soil_moisture=moisture_in_soil), "fikus")
             return moisture_in_soil
     except OSError as e:
             print(e)
