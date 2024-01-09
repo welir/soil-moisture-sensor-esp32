@@ -10,6 +10,7 @@ The project allows monitoring soil moisture levels using ESP32, sending notifica
 
 - **MicroPython:** The project is developed using MicroPython, a lightweight implementation of Python 3 for microcontrollers.
 - **Soil Moisture Sensor:** Monitors soil moisture levels using an analog capacitive soil moisture sensor.
+ ![image](https://github.com/welir/soil-moisture-sensor-esp32/assets/7795803/866537a6-aa77-4406-84f6-49629a3e7753)
 - **Ntfy Server Integration:** Sends notifications to the Ntfy server to keep you informed.
 - **Power Optimization:** The device goes into sleep mode every hour to conserve energy.
 
