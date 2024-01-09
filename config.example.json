@@ -1,5 +1,14 @@
 {
-     "wlan": {"ssid": "", "password": ""},
-     "webrepl": {"port": 9000, "password": ""},
-     "calibrated_moisture_limits" : {"min_moisture":2480, "max_moisture":800}
+  "wlan": {
+    "ssid": "Your_WiFi_SSID",
+    "password": "Your_WiFi_Password"
+  },
+  "calibrated_moisture_limits": {
+    "min_moisture": 2578,
+    "max_moisture": 850
+  },
+  "ntfy_server": {
+    "url": "<You ntfy server url>",
+    "topic": "your_default_topic"
+  }
 }

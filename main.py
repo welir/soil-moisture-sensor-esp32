@@ -31,6 +31,13 @@ max_moisture=850
 # время в миллисекундах
 time_to_sleep = 1
 
+# Read Ntfy server URL and default topic from config
+with open('config.json', 'r') as config_file:
+    config = ujson.load(config_file)
+ntfy_srv_url = config.get("ntfy_server", {}).get("url", '')
+default_topic = config.get("ntfy_server", {}).get("topic", 'default_topic')
+
+
 def set_led_color(percent):
     # Установите количество светодиодов в ленте
     num_leds = 1
@@ -129,8 +136,8 @@ def publish_sensor_data(data, topic):
         print("failed sending sensor data..")
         
 def send_to_ntfy(topic='Epmty topic', msg=''):
-    # Здесь следует вставить код для отправки уведомления на сервер ntfy
-    url = f"http://217.25.236.158/{topic}"  # Замените на корректный URL
+    # Use the Ntfy server URL from config
+    url = f"http://{ntfy_srv_url}/{topic}"  # Замените на корректный URL
     # Создание JSON-данных для отправки
     notification_data = {
       "orange_sensor": msg
