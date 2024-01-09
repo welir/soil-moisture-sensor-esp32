@@ -1,0 +1,5 @@
+{
+     "wlan": {"ssid": "", "password": ""},
+     "webrepl": {"port": 9000, "password": ""},
+     "calibrated_moisture_limits" : {"min_moisture":2480, "max_moisture":800}
+}
